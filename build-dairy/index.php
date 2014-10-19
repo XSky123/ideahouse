@@ -1,3 +1,12 @@
+<?php 
+include_once("../conn.php"); 
+//查询准备
+//WARNING 单引号 in SQL will use 键盘1左面那个【`】
+$sql_latest_version="SELECT DISTINCT  `project-name` , `version`  FROM `build-dairy` WHERE DATE_SUB(CURDATE(), INTERVAL 5 DAY) <= date ORDER BY `date` DESC";
+$get_latest_version=mysql_query($sql_latest_version);
+
+//
+?>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -20,7 +29,6 @@
   </head>
 
   <body>
-
   <div class="container-fluid" id="all">
      <!-- Title -->
 	  <div class="page-header">
@@ -34,20 +42,22 @@
 		   <!-- Latest-->
 			<div class="col-xs-8" id="latest">
 			   <!-- Subtitle-->
-				<h3 class="text-left">
-					最近更新 - 
-					<span>20142222</span>
-				</h3>
+				<h2 class="text-left">
+					最近更新<!--5天-->
+				</h2>
+
             <!-- Intro-->				
+				<!--
 				<blockquote>
 					<p>
 						github是一个全球化的开源社区.
 					</p> <small>编辑 Edit</small>
 				</blockquote>
+				-->
             <!-- Project Title-->				
-				<h4>
-					灵感
-				</h4>
+				<h3>
+					灵感 <span>v0.1</span>
+				</h3>
 				<!-- 这个是table栅栏开始-->
 				<div class="col-xs-6" id="table_latest">
 					<table class="table table-hover table-condensed table-striped">
@@ -58,20 +68,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									0
-								</td>
-								<td>
-									TB - Monthly
-								</td>
-							</tr>
 							<tr class="success">
 								<td>
-									9
+									更新
 								</td>
 								<td>
-									TB - Monthly
+									应该更新的东西
+								</td>
+							</tr>
+							<tr class="warning">
+								<td>
+									修复
+								</td>
+								<td>
+									需要修复的东西
 								</td>
 							</tr>
 						</tbody>
@@ -82,6 +92,7 @@
 			<!-- Navibar -->
 			<div class="col-xs-3" id="navi">
 				<ul class="nav nav-pills nav-stacked" role="tablist">
+				 <li role="presentation"><a href="#">返回首页 Back Home</a></li>
 	           <li role="presentation" class="active"><a href="#">时光旅行 Time Traveller</a></li>
 	           <li role="presentation"><a href="#">详细构想 Details</a></li>
 	           <li role="presentation"><a href="#">未来展望 About Future</a></li>
@@ -94,18 +105,13 @@
 			<div class="col-xs-8 show_as_time">
 			    <hr class="featurette-divider">
 			      <!-- Title(Date)-->
-					<h4 class="text-left">
-						<b>20141002</b>
-					</h4>
-					<!-- Intro-->
-					<blockquote>
-						<p>
-							github是一个全球化的开源社区.
-						</p> <small>编辑 Edit</small>
-					</blockquote>
+			      <h2>时间旅者 <small>升序排序 降序排序</small></h2>
+					<h3 class="text-left">
+					20141002
+					</h3>
                <!-- Project Title -->					
 					<h4>
-						灵感
+						灵感 <span>v0.9</span>
 					</h4>
 					<!-- table框架开始 -->
 					<div class="col-xs-6">
@@ -117,17 +123,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr class="success">
 									<td>
-										0
+										更新
 									</td>
 									<td>
 										TB - Monthly
 									</td>
 								</tr>
-								<tr class="success">
+								<tr  class="warning">
 									<td>
-										9
+										修复
 									</td>
 									<td>
 										TB - Monthly
@@ -151,6 +157,7 @@
 		</div>
 		</div>
 		<div class="row-fluid" id="bottom">
+<!--
 		  <div class="col-xs-8" id="add_login">
 		  		    <div class="page-header">
 		            <h3>登陆 Login</h3>		    
@@ -169,10 +176,12 @@
                </div>		
 						</form>
 		  </div>
+-->
 		  <div class="col-xs-8" id="addit">
 		    <div class="page-header">
             <h3>添加新日志 Add</h3>		    
 		    </div>
+<!--	       
 	        <form>
 	          <div class="form-group col-xs-6">
 				   <label for="input_note">每日随想</label>
@@ -183,6 +192,7 @@
                </div>				  
 				  </div>
 			  </form>
+-->
 				  <div class="col-xs-7">
 						<ul class="nav nav-tabs" role="tablist">
 						  <li class="active"><a href="#add_simple" role="tab" data-toggle="tab">简 洁</a></li>
@@ -213,6 +223,12 @@
 									  <select class="form-control">
 										  <option>1</option>
 									 </select>
+								  </div>
+								</div>
+								 <div class="form-group">
+							     <label class="control-label col-xs-2">版本</label>
+							     <div class="col-xs-4">
+										<input class="form-control" type="text" placeholder="版本">
 								  </div>
 								</div>
 							  <div class="form-group">
