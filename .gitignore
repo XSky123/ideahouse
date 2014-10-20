@@ -1,12 +1,12 @@
 #删除~临时文件
 #好像是gedit 干的 
-.*~
-.md~
-.php~
-.html~
-.htm~
-.css~
-.js~
-.txt~
+*.*~
+*.md~
+*.php~
+*.html~
+*.htm~
+*.css~
+*.js~
+*.txt~
 #不忽略本身 以便下次编辑
 !.gitignore
