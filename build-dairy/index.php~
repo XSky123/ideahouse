@@ -96,7 +96,7 @@ $get_latest_version=mysql_query($sql_latest_version);
 	           <li role="presentation" class="active"><a href="#">时光旅行 Time Traveller</a></li>
 	           <li role="presentation"><a href="#">详细构想 Details</a></li>
 	           <li role="presentation"><a href="#">未来展望 About Future</a></li>
-	           <li role="presentation"><a href="list.php">列表 List</a></li>
+	           <li role="presentation"><a href="list.php">详细列表 List</a></li>
 	        </ul>
 				</form>
 			</div>
