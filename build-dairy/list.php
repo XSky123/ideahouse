@@ -3,8 +3,9 @@ include_once("../conn.php");
 //查询准备
 //WARNING 单引号 in SQL will use 键盘1左面那个【`】
 $sql_getinfo="SELECT * FROM `build-dairy` ORDER BY `date` DESC,`project-name` ASC ,`version` DESC ,`dairy-type` ASC ,`dairy-id` DESC ";//,`project-name` ASC ,`version` DESC ,`dairy-type` ASC ,`dairy-id` DESC "
+$sql_getproj="SELECT DISTINCT  `project-name` FROM `build-dairy` ORDER BY `date` DESC";
 $get_info=mysql_query($sql_getinfo,$q);
-
+$get_proj=mysql_query($sql_getproj,$q);
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -46,7 +47,6 @@ $get_info=mysql_query($sql_getinfo,$q);
 					<table class="table table-hover table-condensed table-striped">
 						<thead>
 							<tr>
-								<th width="8%">ID</th>
 								<th width="8%">类别</th>
 								<th width="10%">项目</th>
 								<th width="8%">版本</th>
@@ -66,17 +66,13 @@ $get_info=mysql_query($sql_getinfo,$q);
 						    exit;
 						}*/
 							while($row = mysql_fetch_assoc($get_info)){ 
-								/*if (($row['dairy-type'])==0)
-									echo 'tr class=\"success\">';
+								if (($row["dairy-type"])==0)
+									echo '<tr class="success">';
 								else 
-									echo '<tr class=\"warning\">';*/
+									echo '<tr class="warning">';
 							 ?>
-							 <tr>
 								<td>
-									<?php echo $row["dairy-id"]; ?>
-								</td>
-								<td>
-									<?php echo $row["dairy-type"]; ?>
+									<?php if($row["dairy-type"]==0) echo "更新";elseif( $row["dairy-type"]) echo "修正";else echo"展望"; ?>
 								</td>
 								<td>
 									<?php echo $row['project-name']; ?>
@@ -134,7 +130,7 @@ $get_info=mysql_query($sql_getinfo,$q);
 -->
 		  <div class="col-xs-8" id="addit">
 		    <div class="page-header">
-            <h3>添加新日志 Add</h3>		    
+            <h3>添加新记录 Add</h3>		    
 		    </div>
 <!--	       
 	        <form>
@@ -176,7 +172,8 @@ $get_info=mysql_query($sql_getinfo,$q);
 							     <label class="control-label col-xs-2">项目</label>
 							     <div class="col-xs-4">
 									  <select class="form-control">
-										  <option>1</option>
+									  <?php while($row = mysql_fetch_array($get_proj))
+									  		echo "<option>".$row[0]."</option>";?>
 									 </select>
 								  </div>
 								</div>
