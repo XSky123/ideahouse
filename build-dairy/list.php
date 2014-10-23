@@ -66,13 +66,21 @@ $get_proj=mysql_query($sql_getproj,$q);
 						    exit;
 						}*/
 							while($row = mysql_fetch_assoc($get_info)){ 
-								if (($row["dairy-type"])==0)
+								/*if (($row["dairy-type"])==0)
 									echo '<tr class="success">';
 								else 
-									echo '<tr class="warning">';
+									echo '<tr class="warning">';*/
+									echo "<tr>";
 							 ?>
 								<td>
-									<?php if($row["dairy-type"]==0) echo "更新";elseif( $row["dairy-type"]) echo "修正";else echo"展望"; ?>
+									<?php
+									 if($row["dairy-type"]==0)
+									 	 echo '<span class="label label-success">更新</span>';
+									 elseif( $row["dairy-type"])
+									 	 echo '<span class="label label-warning">修复</span>';
+									 else
+									 	 echo '<span class="label label-info">展望</span>'; 
+									 ?>
 								</td>
 								<td>
 									<?php echo $row['project-name']; ?>
@@ -91,6 +99,13 @@ $get_proj=mysql_query($sql_getproj,$q);
 						}?>
 						</tbody>
 					</table>
+					<div>
+						<ul class="pagination">
+						  <li class="disabled"><a href="#">&laquo;</a></li>
+						  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+						  <li class="disabled"><a href="#">&raquo;</a></li>
+						</ul>					
+					</div>
 					</div>
 					<!-- Table栅栏结束 -->
 			</div>
@@ -153,40 +168,40 @@ $get_proj=mysql_query($sql_getproj,$q);
 						<!-- Tab panes -->
 						<div class="tab-content">
 						  <div class="tab-pane fade in active" id="add_simple">
-			  			  <form class="form-horizontal">
+			  			  <form class="form-horizontal" method="post" action="#">
 							  <div class="form-group">
 							    <label class="control-label col-xs-2">类型</label>
 								  <div class="btn-group col-xs-10" data-toggle="buttons">
 									  <label class="btn btn-info active">
-									    <input type="radio" name="options" id="option1" autocomplete="off" checked>更新
+									    <input type="radio" name="type_info" id="option1" value="0" autocomplete="off" checked>更新
 									  </label>
 									  <label class="btn btn-info">
-									    <input type="radio" name="options" id="option2" autocomplete="off">修复
+									    <input type="radio" name="type_info" id="option2" value="1" autocomplete="off">修复
 									  </label>
 									  <label class="btn btn-info">
-									    <input type="radio" name="options" id="option3" autocomplete="off">展望
+									    <input type="radio" name="type_info" id="option3" value="2" autocomplete="off">展望
 									  </label>
 									</div>				  
 							  </div>
 							  <div class="form-group">
 							     <label class="control-label col-xs-2">项目</label>
 							     <div class="col-xs-4">
-									  <select class="form-control">
+									  <select class="form-control" name="project_name">
 									  <?php while($row = mysql_fetch_array($get_proj))
-									  		echo "<option>".$row[0]."</option>";?>
+									  		echo "<option value=".$row[0].">".$row[0]."</option>";?>
 									 </select>
 								  </div>
 								</div>
 								 <div class="form-group">
 							     <label class="control-label col-xs-2">版本</label>
 							     <div class="col-xs-4">
-										<input class="form-control" type="text" placeholder="版本">
+										<input class="form-control" type="text" name="version" placeholder="版本">
 								  </div>
 								</div>
 							  <div class="form-group">
 							     <label class="control-label col-xs-2">内容</label>
 							     <div class="col-xs-8">
-										<input class="form-control" type="text" placeholder="内容">
+										<input class="form-control" type="text" name="content" placeholder="内容">
 								  </div>
 								  <div class="col-xs-2"><button type="submit" class="btn btn-success">添加</button></div>
 								</div>
