@@ -36,7 +36,7 @@
               <ul class="nav masthead-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">LOFTER</a></li>
-                <li class="dropdown">
+                <li class="dropdown" id="tools">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">灵感</a></li>

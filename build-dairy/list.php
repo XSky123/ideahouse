@@ -1,5 +1,12 @@
 <?php 
 include_once("../conn.php"); 
+//Get_submit
+$add_type=$_POST['type_info'];
+$add_projname=$_POST['project_name'];
+$add_ver=$_POST['version'];
+$add_content=$_POST['content'];
+$add_date=date('Y-m-d');
+
 //查询准备
 //WARNING 单引号 in SQL will use 键盘1左面那个【`】
 $sql_getinfo="SELECT * FROM `build-dairy` ORDER BY `date` DESC,`project-name` ASC ,`version` DESC ,`dairy-type` ASC ,`dairy-id` DESC ";//,`project-name` ASC ,`version` DESC ,`dairy-type` ASC ,`dairy-id` DESC "
@@ -168,7 +175,7 @@ $get_proj=mysql_query($sql_getproj,$q);
 						<!-- Tab panes -->
 						<div class="tab-content">
 						  <div class="tab-pane fade in active" id="add_simple">
-			  			  <form class="form-horizontal" method="post" action="#">
+			  			  <form class="form-horizontal" method="post" action="">
 							  <div class="form-group">
 							    <label class="control-label col-xs-2">类型</label>
 								  <div class="btn-group col-xs-10" data-toggle="buttons">
