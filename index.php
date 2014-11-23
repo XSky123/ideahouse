@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="晓天的灵感屋 - XSky‘s IdeaHouse">
     <meta name="author" content="XSky123" >
     <title> 晓天的灵感屋 - XSky‘s IdeaHouse</title>
 
@@ -21,22 +21,18 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
-
     <div class="site-wrapper">
-
       <div class="site-wrapper-inner">
-
         <div class="cover-container">
-
           <div class="masthead clearfix">
             <div class="inner">
               <h3 class="masthead-brand">晓天的灵感屋</h3>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">LOFTER</a></li>
-                <li class="dropdown" id="tools">
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Project</a></li>                
+                <!-- <li class="dropdown" id="tools">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">灵感</a></li>
@@ -46,7 +42,7 @@
                     <li><a href="build-dairy">更新日志</a></li>
                     <li><a href="#">用户登陆</a></li>
                   </ul>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -55,13 +51,22 @@
             <h1 class="cover-heading">晓天的灵感屋</h1>
             <p class="lead">捕捉刹那间的灵感,分享我生活的故事.晓天的灵感屋.</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">我们的故事</a>
+              <a href="#" class="btn btn-lg btn-default">我们的故事</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#" class="btn btn-lg btn-success">时光旅者</a>
             </p>
           </div>
 
+          <div class="inner cover" id="proj-list">
+            <ul class="nav nav-pills">
+              <li role="presentation"><a href="#">Idea Center</a></li>
+              <li role="presentation"><a href="#">Time Traveller</a></li>
+              <li role="presentation"><a href="#">Others</a></li>
+            </ul>
+          </div>
+          
           <div class="mastfoot">
             <div class="inner">
-              <p>Powered by <a href="http://getbootstrap.com">Bootstrap</a> - &copy; XSky123 2014</p>
+              <p>Powered by <a href="http://getbootstrap.com">Bootstrap</a> - &copy; XSky123 2014 - version 1.1</p>
             </div>
           </div>
 
