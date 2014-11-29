@@ -29,7 +29,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background: url(../image/homepage.jpg) #3A4098 center 0 no-repeat fixed;
+  background: url(../image/homepage.jpg) #3A4098 center 0 no-repeat;
 }
 body {
   color: #fff;

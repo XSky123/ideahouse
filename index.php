@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="晓天的灵感屋 - XSky‘s IdeaHouse">
+    <meta name="description" content="捕捉刹那间的灵感，分享生活的故事">
     <meta name="author" content="XSky123" >
-    <title> 晓天的灵感屋 - XSky‘s IdeaHouse</title>
+    <title> 晓天的灵感屋 - 捕捉刹那间的灵感，分享生活的故事</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
               <h3 class="masthead-brand">晓天的灵感屋</h3>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="http://blog.xsky123.com">Blog</a></li>
                 <li><a href="#">Project</a></li>                
                 <!-- <li class="dropdown" id="tools">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
@@ -49,24 +49,15 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">晓天的灵感屋</h1>
-            <p class="lead">捕捉刹那间的灵感,分享我生活的故事.晓天的灵感屋.</p>
+            <p class="lead">捕捉刹那间的灵感,分享生活的故事.晓天的灵感屋.</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">我们的故事</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="#" class="btn btn-lg btn-success">时光旅者</a>
+              <a href="http://blog.xsky123.com" class="btn btn-lg btn-default">我们的故事</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#" class="btn btn-lg btn-success">天空实验室 beta</a>
             </p>
-          </div>
-
-          <div class="inner cover" id="proj-list">
-            <ul class="nav nav-pills">
-              <li role="presentation"><a href="#">Idea Center</a></li>
-              <li role="presentation"><a href="#">Time Traveller</a></li>
-              <li role="presentation"><a href="#">Others</a></li>
-            </ul>
-          </div>
-          
+          </div>          
           <div class="mastfoot">
             <div class="inner">
-              <p>Powered by <a href="http://getbootstrap.com">Bootstrap</a> - &copy; XSky123 2014 - version 1.1</p>
+              <p>Powered by <a href="http://getbootstrap.com">Bootstrap</a> - &copy; XSky123 2014</p>
             </div>
           </div>
 
