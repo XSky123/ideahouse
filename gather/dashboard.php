@@ -1,3 +1,6 @@
+<?php 
+	include_once("../conn.php"); 
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +125,7 @@
 	<div class="form-group">
 		<label for="recommendtime" class="col-sm-1 control-label">类别</label>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select class="form-control" id="type1">
 				<option value="Best">精选</option>
 				<option value="Dev">开发工具</option>
 				<option value="Res">资源</option>
@@ -133,7 +136,7 @@
 	<div class="form-group">
 		<label for="recommendtime" class="col-sm-1 control-label">子类</label>
 		<div class="col-sm-2">
-			<select class="form-control">
+			<select class="form-control" id="type2">
 				<option value="Best">精选</option>
 				<option value="Dev">开发工具</option>
 				<option value="Res">资源</option>
