@@ -15,8 +15,8 @@ $get_latest_version=mysql_query($sql_latest_version);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="XSky123" >
-    <title>版本日志 - Build Dairy - 晓天的灵感屋 - XSky‘s IdeaHouse </title>
-
+    <title>版本日志 - Build Dairy - 晓天的灵感屋 - XSky‘s IdeaHouse </title> 
+    <script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
     <!-- Bootstrap core CSS -->
     <link href="  ../css/bootstrap.min.css" rel="stylesheet">
 
@@ -260,7 +260,6 @@ $get_latest_version=mysql_query($sql_latest_version);
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

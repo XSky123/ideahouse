@@ -7,6 +7,7 @@
     <meta name="description" content="晓天的灵感屋 - XSky‘s IdeaHouse">
     <meta name="author" content="XSky123" >
     <title> Story of us - 晓天的灵感屋 - XSky‘s IdeaHouse</title>
+    <script src="js/jquery-1.11.2.min.js"></script><!-- JQuery -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     body{

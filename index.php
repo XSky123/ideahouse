@@ -7,10 +7,9 @@
     <meta name="description" content="捕捉刹那间的灵感，分享生活的故事">
     <meta name="author" content="XSky123" >
     <title> 晓天的灵感屋 - 捕捉刹那间的灵感，分享生活的故事</title>
-
+    <script src="js/jquery-1.11.2.min.js"></script><!-- JQuery -->
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/index.css" rel="stylesheet">
 
@@ -70,7 +69,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

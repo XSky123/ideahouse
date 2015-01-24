@@ -8,9 +8,14 @@
 	<meta name="author" content="XSky123" >
 	<title>管理中心 - 集·锦 | 拼接那些美丽的碎片</title>
 	<link href="  ../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
+	<script type="text/javascript"  src="index.js"></script>
 	<style type="text/css">
 	.no-bottom-margin{margin-bottom: 0;}	
 	.surprise{margin-bottom: 10px;}
+	small a{
+		color:#000;
+	}
 	</style>
 	<!--[if lt IE 9]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -64,7 +69,7 @@
 				<td>萨达算得上是</td>
 				<td>www.www.www</td>
 				<td>2015-1-1 11:11L11</td>
-				<td><strong>是</strong>/<small>否</small></td>
+				<td><strong>是</strong>/<small><a href="">否</a></small></td>
 				<td>永久</td>
 				<td>瓦多少快递加阿里上框架的垃圾是打蜡</td>
 				<td>
@@ -74,44 +79,82 @@
 					<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">删除</button>
 				</td>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>萨达算得上是</td>
-				<td>www.www.www</td>
-				<td>2015-1-1 11:11L11</td>
-				<td><strong>是</strong>/<small>否</small></td>
-				<td>永久</td>
-				<td>瓦多少快递加阿里上框架的垃圾是打蜡</td>
-			</tr>
 		</table>
-
-
-<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			  </div>
-			  <div class="modal-body">
-				...
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			  </div>
-			</div>
-		  </div>
+	</div>
+	<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label for="sitename" class="col-sm-1 control-label">网站名称</label>
+		<div class="col-sm-2">
+			<input type="text" class="form-control" id="sitename" name="sitename" placeholder="晓天的灵感屋">
 		</div>
 	</div>
+	<div class="form-group">
+		<label for="input_addr" class="col-sm-1 control-label">网址</label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" id="input_addr"  name="input_addr"placeholder="http://xsky123.com">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="is_recommend" class="col-sm-1 control-label">推荐</label>
+		<div class="radio col-sm-4" id="is_recommend">
+			<label>
+				<input type="radio" name="is_recommend" id="is_recommend1" value="true">
+				是
+			</label>
+			<label>
+				<input type="radio" name="is_recommend" id="is_recommend2" value="false" checked>
+				否
+			</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="recommendation" class="col-sm-1 control-label">推荐语</label>
+		<div class="col-sm-3">
+			<textarea class="form-control"  id="recommendation" name="recommendation" placeholder="捕捉刹那间的灵感,分享生活的故事" rows="3"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="recommendtime" class="col-sm-1 control-label">推荐期限</label>
+		<div class="col-sm-1">
+			<input type="text" class="form-control" id="recommendtime"  name="recommendtime" placeholder="天数">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="recommendtime" class="col-sm-1 control-label">类别</label>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="Best">精选</option>
+				<option value="Dev">开发工具</option>
+				<option value="Res">资源</option>
+				<option value="Fuli">☆资源 - 福利</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="recommendtime" class="col-sm-1 control-label">子类</label>
+		<div class="col-sm-2">
+			<select class="form-control">
+				<option value="Best">精选</option>
+				<option value="Dev">开发工具</option>
+				<option value="Res">资源</option>
+				<option value="Fuli">☆资源 - 福利</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-success">确认</button>
+		</div>
+	</div>
+	</form>
 	<footer>
 		<p class="pull-right"><a href="#">Back to top</a></p>
 		<p>&copy; 2014 XSky123 &middot; <a href="../index.php">晓天的灵感屋</a></p>
 	</footer>
 </div>
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

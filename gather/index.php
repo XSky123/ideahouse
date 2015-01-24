@@ -8,6 +8,8 @@
 	<meta name="author" content="XSky123" >
 	<title>集·锦 | 拼接那些美丽的碎片</title>
 	<link href="  ../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
+	<script type="text/javascript"  src="index.js"></script>
 	<style type="text/css">
 	.no-bottom-margin{margin-bottom: 0;}	
 	.surprise{margin-bottom: 10px;}
@@ -157,9 +159,9 @@
 							</td>
 						</tr>
 					</table>
-					<div class="text-center"><button type="button" class="btn btn-success surprise">Click for a surprise!</button></div>
-					<div class="text-center"><button type="button" class="btn btn-warning surprise">Hide That.</button></div>
-					<div class="alert alert-info" role="alert">
+					<div class="text-center"><button type="button" class="btn btn-success surprise" id="surprise">Click for a surprise!</button></div>
+					<div class="text-center"><button type="button" class="btn btn-warning surprise hx" id="hidethat">Hide That.</button></div>
+					<div class="alert alert-info hx" role="alert" id="askquestion">
 						<strong>Question:传说中的草.Liu 论坛 又叫:</strong>
 						<label class="radio-inline">
 						<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1024BBS
@@ -170,10 +172,11 @@
 						<label class="radio-inline">
 						<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 888BBS
 						</label>
-						<button type="submit" class="btn btn-primary">Check</button>
+						<button type="submit" class="btn btn-primary" id="checkquestion">Check</button>
 					</div>
-					<div class="alert alert-success text-center" role="alert"><strong>You are right!</strong></div>
-					<div class="alert alert-danger" role="alert"><strong>Warning!</strong>
+					<div class="alert alert-success text-center hx" role="alert" id="urright"><strong>You are right! </strong></div>
+					<div class="alert alert-danger text-center hx" role="alert" id="urwrong"><strong>You are wrong!</strong><a href="#" class="alert-link">Go back</a></div>
+					<div class="alert alert-danger hx" role="alert" id="hxwarning"><strong>Warning!</strong>
 						<span>
 							<!-- This site contains sexually explicit adult materials intended for individuals 18 years of age or older. To those whom may concern, block this website with parental controls. -->
 							以下可能出现you know的内容.如果你还很纯洁,请速速远离!
@@ -181,7 +184,7 @@
 						<a href="#" class="alert-link">Agree</a>
 						<a href="#" class="alert-link">Disagree</a>
 					</div>
-					<table class="table table-striped  table-hover no-bottom-margin">
+					<table class="table table-striped  table-hover no-bottom-margin hx" id="youkonwthat">
 						<tr >
 							<td>
 								<button class="btn btn-warning" type="button">
@@ -217,8 +220,9 @@
 		<p>&copy; 2014 XSky123 &middot; <a href="../index.php">晓天的灵感屋</a></p>
 	</footer>
 </div>
-
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
