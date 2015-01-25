@@ -13,6 +13,13 @@
 	<style type="text/css">
 	.no-bottom-margin{margin-bottom: 0;}	
 	.surprise{margin-bottom: 10px;}
+	.jumbotron{
+		background: url(../image/gather.jpg) no-repeat  0;
+		background-size:cover;
+	}
+	.jumbotron h1,p{
+		color:#000;
+	}
 	</style>
 	<!--[if lt IE 9]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -28,8 +35,7 @@
 	<a href="dashboard.php" class="navbar-link">管理中心</a>
 	</p>
 </nav> -->
-<?php 
-include_once("navibar.php") ?>
+<?php include_once("navibar.php") ?>
 <div class="container">
 	<div class="jumbotron">
 		<h1>集·锦</h1>
