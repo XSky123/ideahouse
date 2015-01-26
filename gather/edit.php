@@ -1,9 +1,16 @@
 <?php 
 	include_once("../conn.php"); 
 	$id=$_GET['id'];
+	$isError=0;
+	if($id<=0){
+		$isError=1;
+	}
 	$sql="SELECT * FROM gather_content WHERE id=".$id;
 	$result = mysql_query($sql);
-	$row = mysql_fetch_array($result);
+	if(!$row = mysql_fetch_array($result))
+		$isError=1;
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,18 +25,30 @@
 	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
 	<script src="dashboard.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){ 
-			$("#site").val(<?php  echo "'".$row['site']."'";?>);
-			$("#addr").val(<?php  echo "'".$row['addr']."'";?>);
-			$("input[name='is_recommend']").get(<?php  echo 1-$row['is_recommend'];?>).checked=true;
-			checkRadio();
-			$("#recommendation").val(<?php  echo "'".$row['recommendation']."'";?>);
-			$("#type1").val(<?php  echo "'".$row['type1']."'";?>);
-			$("#type2").val(<?php  echo "'".$row['type2']."'";?>);
-		}); 
+		<?php
+			if(!$isError){
+		?>
+				$(document).ready(function(){ 
+					$("input[name='is_recommend']").get(<?php  echo 1-$row['is_recommend'];?>).checked=true;
+					checkRadio();
+					$("#site").val(<?php  echo "'".$row['site']."'";?>);
+					$("#addr").val(<?php  echo "'".$row['addr']."'";?>);
+					$("#recommendation").val(<?php  echo "'".$row['recommendation']."'";?>);
+					$("#type1").val(<?php  echo "'".$row['type1']."'";?>);
+					$("#type2").val(<?php  echo "'".$row['type2']."'";?>);
+				}); 
+		<?php
+			}
+		?>
 	</script>
 	<style type="text/css">
-
+	.jumbotron{
+		background: url(../image/gather.jpg) no-repeat  0;
+		background-size:cover;
+	}
+	.jumbotron h1,p{
+		color:#000;
+	}
 	</style>
 	<!--[if lt IE 9]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -39,8 +58,9 @@
 <body>
 
 <?php include_once("navibar.php") ?>
+<?php if(!$isError){?>
 <div class="container">
-	<form class="form-horizontal" role="form" method="post" action="add.php">
+	<form class="form-horizontal" role="form" method="post" action="update.php">
 	<div class="form-group">
 		<label for="site" class="col-sm-1 control-label">网站名称</label>
 		<div class="col-sm-2">
@@ -107,6 +127,14 @@
 	</div>
 	</form>
 </div>
+<?php }else{ ?>
+	<div class="container">
+			<div class="jumbotron">
+				<h1>出错了！</h1>
+				<p><a class="btn btn-primary btn-lg" href="index.php" role="button">返回首页</a></p>
+			</div>
+	</div>
+<?php } ?>
 	<footer>
 		<p class="pull-right"><a href="#">Back to top</a></p>
 		<p>&copy; 2014 XSky123 &middot; <a href="../index.php">晓天的灵感屋</a></p>
