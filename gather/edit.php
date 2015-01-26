@@ -2,7 +2,6 @@
 	include_once("../conn.php"); 
 	$id=$_GET['id'];
 	$sql="SELECT * FROM gather_content WHERE id=".$id;
-	echo $sql;
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
 ?>
@@ -20,12 +19,13 @@
 	<script src="dashboard.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){ 
-			$("#site").val(<?php  echo '"'.$row['site']."'";?>);
-			$("#addr").val(<?php  echo '"'.$row['addr']."'";?>);
-			$(".is_recommend").val(<?php  echo '"'.$row['is_recommend']."'";?>);
-			$("#recommendation").val(<?php  echo '"'.$row['recommendation']."'";?>);
-			$("#type1").val(<?php  echo '"'.$row['type1']."'";?>);
-			$("#type2").val(<?php  echo '"'.$row['type2']."'";?>);
+			$("#site").val(<?php  echo "'".$row['site']."'";?>);
+			$("#addr").val(<?php  echo "'".$row['addr']."'";?>);
+			$("input[name='is_recommend']").get(<?php  echo 1-$row['is_recommend'];?>).checked=true;
+			checkRadio();
+			$("#recommendation").val(<?php  echo "'".$row['recommendation']."'";?>);
+			$("#type1").val(<?php  echo "'".$row['type1']."'";?>);
+			$("#type2").val(<?php  echo "'".$row['type2']."'";?>);
 		}); 
 	</script>
 	<style type="text/css">

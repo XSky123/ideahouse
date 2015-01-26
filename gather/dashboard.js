@@ -8,6 +8,13 @@ function getVal(){
 		}); 
 	}); 
 }
+function checkRadio(){
+	if($("input[name='is_recommend']:checked").val()==1){
+			$("#tuijianyu").show();
+		}else{
+			$("#tuijianyu").hide();
+		}
+}
 $(document).ready(function(){ 
 	getVal(); 
 	$("#type1").change(function(){
@@ -15,11 +22,7 @@ $(document).ready(function(){
 	}); 
 	$("#tuijianyu").hide();
 	$("input[name='is_recommend']").change(function() { 
-		if($("input[name='is_recommend']:checked").val()==1){
-			$("#tuijianyu").show();
-		}else{
-			$("#tuijianyu").hide();
-		}
+		checkRadio();
 	}); 
 	$("#addType2").click(function(){
 		$.post("add_type2.php",
