@@ -20,7 +20,7 @@
 			break;
 		case 'X':
 			$typename="资源 - 福利";
-			$sql.=" WHERE type1='-1'";
+			$sql.=" WHERE type1='888'";
 			break;
 	}
 	$result = mysql_query($sql);
@@ -44,6 +44,14 @@
 	<link href="  ../css/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
 	<script type="text/javascript"  src="dashboard.js"></script>
+	<script type="text/javascript">
+		function Delete(id){
+			var check=confirm("删除后无法恢复，确认吗？");
+			if(check==true){
+				window.location.href("del.php?id="+id); 
+			}
+		}
+	</script>
 	<style type="text/css">
 	small a{
 		color:#000;
@@ -66,7 +74,7 @@
 <div class="container">
 	<div class="jumbotron">
 		<h1>管理中心</h1>
-		<!-- <p>拼接那些美丽的碎片</p> -->
+		<p>世界的背后是什么样子...</p>
 	</div>
 </div>
 <div class="container">
@@ -112,10 +120,10 @@
 				<!-- <td><?php echo $row['recommend_time']; ?></td> -->
 				<td><?php echo $row['recommendation']; ?></td>
 				<td>
-					<?php echo "<a href=edit.php?id=".$row['id'].">"; ?><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">编辑</button></a>
+					<?php echo "<a href=edit.php?id=".$row['id'].">"; ?><button type="button" class="btn btn-primary btn-sm">编辑</button></a>
 				</td>
 				<td>
-					<?php echo "<a href=del.php?id=".$row['id'].">"; ?><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">删除</button></a>
+					<button type="button" class="btn btn-danger btn-sm" onclick="Delete(<?php echo $row['id'] ?>)">删除</button>
 				</td>
 			</tr>
 			<?php 
@@ -168,7 +176,7 @@
 				<option value=1>精选</option>
 				<option value=2>开发工具</option>
 				<option value=3>资源</option>
-				<option value=-1>☆资源 - 福利</option>
+				<option value=888>☆资源 - 福利</option>
 			</select>
 		</div>
 	</div>
@@ -207,7 +215,7 @@
 					<option value=1>精选</option>
 					<option value=2>开发工具</option>
 					<option value=3>资源</option>
-					<option value=-1>☆资源 - 福利</option>
+					<option value=888>☆资源 - 福利</option>
 				</select>
 		</div>
 		<div class="col-sm-4">

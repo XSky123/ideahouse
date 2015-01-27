@@ -1,3 +1,35 @@
+<?php
+	include_once("../conn.php"); 
+	$sql="SELECT * FROM gather_content ORDER BY type2";
+	$sql2="SELECT * FROM gather_type2";
+	$result = mysql_query($sql);
+	$result2 = mysql_query($sql2);
+	$data[1]=array();
+	$data[2]=array();
+	$data[3]=array();
+	$data[888]=array();
+	$typeName=array();
+	while($row=mysql_fetch_array($result)){
+		switch ($row['type1']){
+			case 1:
+				array_push($data[1],$row);
+				break;
+			case 2:
+				array_push($data[2],$row);
+				break;
+			case 3:
+				array_push($data[3],$row);
+				break;
+			case 888:
+				array_push($data[888],$row);
+				break;
+		}
+	}
+	while($row=mysql_fetch_array($result2)){
+		$typeName[$row['id']]=$row['name'];
+	}
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,119 +88,146 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane fade in active" id="recommend">
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
+					<?php foreach ($data[1] as $key => $row) {
+						if ($row['is_recommend']){
+					?>
 						<tr>
 							<td width="85%">
-								<h4>知乎 <small>一个神奇的网站</small></h4>
+								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small>www.Zhihu.com</small></em></h5>
+								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
 							</td>
 						</tr>
+					<?php 
+						}
+					}
+					 ?>
 					</table>
 					<table class="table table-striped  table-hover">
-						<tr>
-							<td>
-								<button class="btn btn-primary" type="button">
-									Type <span class="badge">10</span>
-								</button>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-						</tr>
+						<?php 
+						$currentType=0;
+						foreach ($data[1] as $key => $row) {
+							if (!$row['is_recommend']){
+								if($row['type2']!=$currentType){
+									echo "<tr>";
+									$currentType=$row['type2'];
+						?>
+									<td width="10%">
+										<button class="btn btn-primary" type="button">
+											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
+										</button>
+									</td>
+							<?php 
+								}
+							 ?>
+									<td>
+										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
+									</td>
+							<?php
+								if($row['type2']!=$currentType){
+									echo "</tr>";
+									
+								}
+							}
+						}
+						?>
 					</table>
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="dev">
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
+					<?php foreach ($data[2] as $key => $row) {
+						if ($row['is_recommend']){
+					?>
 						<tr>
 							<td width="85%">
-								<h4>知乎 <small>一个神奇的网站</small></h4>
+								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small>www.Zhihu.com</small></em></h5>
+								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
 							</td>
 						</tr>
+					<?php 
+						}
+					}
+					 ?>
 					</table>
 					<table class="table table-striped  table-hover">
-						<tr>
-							<td>
-								<button class="btn btn-primary" type="button">
-									Type <span class="badge">10</span>
-								</button>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-						</tr>
+						<?php 
+						$currentType=0;
+						foreach ($data[2] as $key => $row) {
+							if (!$row['is_recommend']){
+								if($row['type2']!=$currentType){
+									echo "<tr>";
+									$currentType=$row['type2'];
+						?>
+									<td width="10%">
+										<button class="btn btn-primary" type="button">
+											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
+										</button>
+									</td>
+							<?php 
+								}
+							 ?>
+									<td>
+										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
+									</td>
+							<?php
+								if($row['type2']!=$currentType){
+									echo "</tr>";
+									
+								}
+							}
+						}
+						?>
 					</table>
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="res">
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
+					<?php foreach ($data[3] as $key => $row) {
+						if ($row['is_recommend']){
+					?>
 						<tr>
 							<td width="85%">
-								<h4>知乎 <small>一个神奇的网站</small></h4>
+								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small>www.Zhihu.com</small></em></h5>
+								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
 							</td>
 						</tr>
+					<?php 
+						}
+					}
+					 ?>
 					</table>
-					<table class="table table-striped  table-hover no-bottom-margin">
-						<tr>
-							<td>
-								<button class="btn btn-primary" type="button">
-									Type <span class="badge">10</span>
-								</button>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-						</tr>
+					<table class="table table-striped  table-hover">
+						<?php 
+						$currentType=0;
+						foreach ($data[3] as $key => $row) {
+							if (!$row['is_recommend']){
+								if($row['type2']!=$currentType){
+									echo "<tr>";
+									$currentType=$row['type2'];
+						?>
+									<td width="10%">
+										<button class="btn btn-primary" type="button">
+											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
+										</button>
+									</td>
+							<?php 
+								}
+							 ?>
+									<td>
+										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
+									</td>
+							<?php
+								if($row['type2']!=$currentType){
+									echo "</tr>";
+									
+								}
+							}
+						}
+						?>
 					</table>
 					<div class="text-center"><button type="button" class="btn btn-success surprise" id="surprise">Click for a surprise!</button></div>
 					<div class="text-center"><button type="button" class="btn btn-warning surprise hx" id="hidethat">Hide That.</button></div>

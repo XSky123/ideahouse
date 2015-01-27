@@ -105,7 +105,7 @@
 				<option value=1>精选</option>
 				<option value=2>开发工具</option>
 				<option value=3>资源</option>
-				<option value=-1>☆资源 - 福利</option>
+				<option value=888>☆资源 - 福利</option>
 			</select>
 		</div>
 	</div>
@@ -120,6 +120,7 @@
 
 		</div>
 	</div>
+	<input type="hidden" name="id" value=<?php echo $id; ?>/>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-success">确认</button>
