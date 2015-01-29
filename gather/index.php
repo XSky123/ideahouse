@@ -1,5 +1,17 @@
 <?php
 	include_once("../conn.php"); 
+	session_start();
+	$uID=$_SESSION['u_id'];
+	$uName="";
+	$uPermission=0;
+	if($uID!=""){
+		$sql_getinfo="SELECT * FROM user WHERE user_id='$uID'";
+		$result3=mysql_query($sql_getinfo);
+		$row=mysql_fetch_array($result3);
+		$uName=$row['username'];
+		$uPermission=$row['uPermission'];
+	}
+	echo $uName;
 	$sql="SELECT * FROM gather_content ORDER BY type2";
 	$sql2="SELECT * FROM gather_type2";
 	$result = mysql_query($sql);
@@ -68,8 +80,10 @@
 </div>
 <div class="container">
 	<div class="row">
+		<h2>优站精选 <small>精巧·精致·精彩</small></h2>
+	</div>
+	<div class="row">
 		<div class="col-md-8">
-			<h2>优站精选 <small>精巧·精致·精彩</small></h2>
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#recommend" role="tab" data-toggle="tab">精选</a></li>
@@ -261,12 +275,18 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">箴言</div>
+				<div class="panel-body">
+					<h4>我们追求的也许不是幸福，而是追求幸福的过程。</h4>
+					<p class="text-right">——白岩松</p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php include_once("footer.php") ?>
-	<footer>
-		<p class="pull-right"><a href="#">Back to top</a></p>
-		<p>&copy; 2014 XSky123 &middot; <a href="../index.php">晓天的灵感屋</a></p>
-	</footer>
+
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
