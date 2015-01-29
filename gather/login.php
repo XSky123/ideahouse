@@ -109,5 +109,8 @@
 	}
 ?>
 	</div>
+	<div class="container">
+		<?php include_once("footer.php") ?>
+	</div>
   </body>
 </html>

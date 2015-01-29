@@ -59,14 +59,6 @@
 	<![endif]-->
 </head>
 <body>
-<!-- <nav class="navbar navbar-default" role="navigation">
-	<a class="navbar-brand" href="#">集·锦</a>
-	<p class="navbar-text"><a href="http://www.xsky123.com">晓天的灵感屋</a> 旗下网站</p>
-	<p class="navbar-text navbar-right" >
-	<a href="login.php" class="navbar-link">Login</a>
-	<a href="dashboard.php" class="navbar-link">管理中心</a>
-	</p>
-</nav> -->
 <?php include_once("navibar.php") ?>
 <div class="container">
 	<div class="jumbotron">
@@ -214,16 +206,15 @@
 											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
 										</button>
 									</td>
-							<?php 
+						<?php 
 								}
-							 ?>
+						 ?>
 									<td>
 										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
 									</td>
-							<?php
+						<?php
 								if($row['type2']!=$currentType){
 									echo "</tr>";
-									
 								}
 							}
 						}
@@ -231,21 +222,7 @@
 					</table>
 					<div class="text-center"><button type="button" class="btn btn-success surprise" id="surprise">Click for a surprise!</button></div>
 					<div class="text-center"><button type="button" class="btn btn-warning surprise hx" id="hidethat">Hide That.</button></div>
-					<div class="alert alert-info hx" role="alert" id="askquestion">
-						<strong>Question:传说中的草.Liu 论坛 又叫:</strong>
-						<label class="radio-inline">
-						<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1024BBS
-						</label>
-						<label class="radio-inline">
-						<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2048BBS
-						</label>
-						<label class="radio-inline">
-						<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 888BBS
-						</label>
-						<button type="submit" class="btn btn-primary" id="checkquestion">Check</button>
-					</div>
-					<div class="alert alert-success text-center hx" role="alert" id="urright"><strong>You are right! </strong></div>
-					<div class="alert alert-danger text-center hx" role="alert" id="urwrong"><strong>You are wrong!</strong><a href="#" class="alert-link">Go back</a></div>
+					
 					<div class="alert alert-danger hx" role="alert" id="hxwarning"><strong>Warning!</strong>
 						<span>
 							<!-- This site contains sexually explicit adult materials intended for individuals 18 years of age or older. To those whom may concern, block this website with parental controls. -->
@@ -282,7 +259,7 @@
 						</tr>
 					</table>
 				</div>
-		</div>
+			</div>
 		</div>
 	</div>
 	<?php include_once("footer.php") ?>

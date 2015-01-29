@@ -49,10 +49,7 @@
 	</div>
 	<p>如果3秒后没有跳转,请点击<a href="dashboard.php" class="btn btn-primary btn-lg" role="button">返回&raquo;</a></p>
 </div>
-	<footer>
-		<p class="pull-right"><a href="#">Back to top</a></p>
-		<p>&copy; 2014 XSky123 &middot; <a href="../index.php">晓天的灵感屋</a></p>
-	</footer>
+	<?php include_once("footer.php") ?>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->

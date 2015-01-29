@@ -35,9 +35,9 @@ unset($_SESSION['u_id']);
         <p>如果3秒后没有跳转,请点击<a href="index.php" class="btn btn-primary btn-lg" role="button">返回&raquo;</a></p>
      </div>     
       <hr />
-      <footer>
-        <p>&copy; XSky123 2014</p>
-      </footer>
+      <div class="container">
+    <?php include_once("footer.php") ?>
+    </div>
   </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
