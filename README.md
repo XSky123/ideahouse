@@ -10,12 +10,13 @@ Idea House for XSky123
 </ul>
 
 <ul>
-<ll><b>Now We Have:</b></ll>
-<li>版本中心（内测）</li>
-<li>灵感（新版代码重写中）</li>
+<ll><b>On Processing:</b></ll>
+<li>版本中心</li>
+<li>集锦 - 拼接那些美丽的碎片</li>
 </ul>
 
 <ul>
 <li>20141014 正在努力赶制新版。与拖延症斗争中。。。。。。</li>
 <li>20141017 SQL语句补课中 缓慢前行吧</li>
+<li>20150129 集锦（网站推荐导航）测试版即将上线</li>
 </ul>
