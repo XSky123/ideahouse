@@ -1,17 +1,18 @@
 <?php
 	include_once("../conn.php"); 
 	session_start();
+	$isLogin=0;
 	$uID=$_SESSION['u_id'];
 	$uName="";
 	$uPermission=0;
 	if($uID!=""){
+		$isLogin=1;
 		$sql_getinfo="SELECT * FROM user WHERE user_id='$uID'";
 		$result3=mysql_query($sql_getinfo);
 		$row=mysql_fetch_array($result3);
 		$uName=$row['username'];
-		$uPermission=$row['uPermission'];
+		$uPermission=$row['permission'];
 	}
-	echo $uName;
 	$sql="SELECT * FROM gather_content ORDER BY type2";
 	$sql2="SELECT * FROM gather_type2";
 	$result = mysql_query($sql);
