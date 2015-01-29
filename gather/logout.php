@@ -1,6 +1,13 @@
 <?php
 session_start();
-unset($_SESSION['u_id']);
+$uID=$_SESSION['u_id'];
+$isSuccess=0;
+if($uID!=""){
+  unset($_SESSION['u_id']);
+  $isSuccess=1;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,19 +33,22 @@ unset($_SESSION['u_id']);
   </head>
   <body>
 <?php include_once("navibar.php") ?>
-  <div class="container">
-     <div class="jumbotron">
-        <h1>集·锦</h1>
-        <div class="alert alert-success" id="success" role="alert">
-        	<strong>温馨提示:</strong>注销成功!
-        </div>
-        <p>如果3秒后没有跳转,请点击<a href="index.php" class="btn btn-primary btn-lg" role="button">返回&raquo;</a></p>
-     </div>     
-      <hr />
-      <div class="container">
-    <?php include_once("footer.php") ?>
+<div class="container">
+    <div class="jumbotron">
+      <h1>集·锦</h1>
     </div>
-  </div>
+    <?php if($isSuccess){ ?>
+    <div class="alert alert-success" id="success" role="alert">
+        <strong>温馨提示:</strong>注销成功! 如果3秒后没有跳转,请点击<a href="index.php" class="btn btn-primary btn-sm" role="button">返回&raquo;</a>
+    </div>
+    <?php  }else{ ?>
+      <div class="alert alert-danger" role="alert">
+        <strong>注销失败!</strong>您还没有<a href="login.php">登录</a> 如果3秒后没有跳转,请点击<a href="login.php" class="btn btn-primary btn-sm" role="button">登陆&raquo;</a>
+      </div>
+      <?php } ?>
+    <?php include_once("footer.php") ?>
+</div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
