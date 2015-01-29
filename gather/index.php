@@ -64,6 +64,10 @@
 	.jumbotron h1,p{
 		color:#000;
 	}
+	.tab-content a,
+	.tab-content a:hover{
+		color:inherit;
+	}
 	</style>
 	<!--[if lt IE 9]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -99,10 +103,10 @@
 					?>
 						<tr>
 							<td width="85%">
-								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
+								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
+								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
 							</td>
 						</tr>
 					<?php 
@@ -279,7 +283,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">箴言</div>
 				<div class="panel-body">
-					<h4>我们追求的也许不是幸福，而是追求幸福的过程。</h4>
+					<h4>也许我们喜欢的不是幸福，而是追求幸福的过程</h4>
 					<p class="text-right">——白岩松</p>
 				</div>
 			</div>
