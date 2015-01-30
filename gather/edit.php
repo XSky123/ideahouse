@@ -1,10 +1,22 @@
 <?php 
 	include_once("../conn.php"); 
+	session_start();
+	$isLogin=0;
+	$uID=$_SESSION['u_id'];
+	$uName="";
+	$uPermission=0;
+	if($uID!=""){
+		$isLogin=1;
+		$sql_getinfo="SELECT * FROM user WHERE user_id='$uID'";
+		$result3=mysql_query($sql_getinfo);
+		$row=mysql_fetch_array($result3);
+		$uName=$row['username'];
+		$uPermission=$row['permission'];
+	}
 	$id=$_GET['id'];
 	$isError=0;
-	if($id<=0){
+	if(!$isLogin||$uPermission!=3||$id<=0)
 		$isError=1;
-	}
 	$sql="SELECT * FROM gather_content WHERE id=".$id;
 	$result = mysql_query($sql);
 	if(!$row = mysql_fetch_array($result))
@@ -132,8 +144,11 @@
 	<div class="container">
 			<div class="jumbotron">
 				<h1>出错了！</h1>
-				<p><a class="btn btn-primary btn-lg" href="index.php" role="button">返回首页</a></p>
+				<p>即将<a class="btn btn-primary btn-lg" href="index.php" role="button">即将返回首页</a></p>
 			</div>
+			<script type="text/javascript">
+				setTimeout("self.location='index.php'", 3000);
+			</script>
 	</div>
 <?php } ?>
 	<?php include_once("footer.php") ?>

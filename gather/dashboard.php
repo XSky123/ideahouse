@@ -13,37 +13,38 @@
 		$uName=$row['username'];
 		$uPermission=$row['permission'];
 	}
-	$sql="SELECT * FROM gather_content";
-	$sql2="SELECT * FROM gather_type2";
-	$typename="精选";
-	$typeid=$_GET["type"];
-	switch ($typeid)
-	{
-		case 1:
-			$typename="精选";
-			$sql.=" WHERE type1='1'";
-			break;
-		case 2:
-			$typename="开发工具";
-			$sql.=" WHERE type1='2'";
-			break;
-		case 3:
-			$typename="资源";
-			$sql.=" WHERE type1='3'";
-			break;
-		case 'X':
-			$typename="资源 - 福利";
-			$sql.=" WHERE type1='888'";
-			break;
+	if($isLogin&&$uPermission==3){
+		$sql="SELECT * FROM gather_content";
+		$sql2="SELECT * FROM gather_type2";
+		$typename="精选";
+		$typeid=$_GET["type"];
+		switch ($typeid)
+		{
+			case 1:
+				$typename="精选";
+				$sql.=" WHERE type1='1'";
+				break;
+			case 2:
+				$typename="开发工具";
+				$sql.=" WHERE type1='2'";
+				break;
+			case 3:
+				$typename="资源";
+				$sql.=" WHERE type1='3'";
+				break;
+			case 'X':
+				$typename="资源 - 福利";
+				$sql.=" WHERE type1='888'";
+				break;
+		}
+		$result = mysql_query($sql);
+		$result2=mysql_query($sql2);
+		$type2name=[];
+		while($row = mysql_fetch_array($result2))
+		{
+			$type2name[$row['id']]=$row['name'];
+		}
 	}
-	$result = mysql_query($sql);
-	$result2=mysql_query($sql2);
-	$type2name=[];
-	while($row = mysql_fetch_array($result2))
-	{
-		$type2name[$row['id']]=$row['name'];
-	}
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,9 @@
 	<title>管理中心 - 集·锦 | 拼接那些美丽的碎片</title>
 	<link href="  ../css/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
+	<?php if($isLogin&&$uPermission==3) {?>
 	<script type="text/javascript"  src="dashboard.js"></script>
+	<?php } ?>
 	<script type="text/javascript">
 		function Delete(id){
 			var check=confirm("删除后无法恢复，确认吗？");
@@ -90,6 +93,17 @@
 		<p>世界的背后是什么样子...</p>
 	</div>
 </div>
+<?php if(!$isLogin){ ?>
+<div class="container">
+	<div class="row">
+		<div class="alert alert-danger h4" role="alert">
+		        <strong>错误!</strong>您还没有<a href="login.php">登录</a> 或者权限不足！<a href="index.php" class="btn btn-primary btn-sm" role="button">返回首页&raquo;</a>
+		</div>
+	</div>
+</div>
+<?php include_once("footer.php");
+return 0;
+} ?>
 <div class="container">
 	<div class="row">
 		<div class="btn-group">
