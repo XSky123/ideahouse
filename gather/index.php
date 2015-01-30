@@ -54,7 +54,7 @@
 	<title>集·锦 | 拼接那些美丽的碎片</title>
 	<link href="  ../css/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.11.2.min.js"></script><!-- JQuery -->
-	<script type="text/javascript"  src="index.js"></script>
+	<!-- <script type="text/javascript"  src="index.js"></script> -->
 	<style type="text/css">
 	.no-bottom-margin{margin-bottom: 0;}	
 	.surprise{margin-bottom: 10px;}
@@ -239,44 +239,59 @@
 						}
 						?>
 					</table>
-					<div class="text-center"><button type="button" class="btn btn-success surprise" id="surprise">Click for a surprise!</button></div>
-					<div class="text-center"><button type="button" class="btn btn-warning surprise hx" id="hidethat">Hide That.</button></div>
-					
-					<div class="alert alert-danger hx" role="alert" id="hxwarning"><strong>Warning!</strong>
+<!-- 					<div class="text-center"><button type="button" class="btn btn-success surprise" id="surprise">Surprise!</button></div>
+					<div class="text-center"><button type="button" class="btn btn-warning surprise" id="hidethat">Hide That.</button></div>
+					<div class="alert alert-warning" role="alert"><strong>Sorry</strong> 本部分尚未完工，敬请期待！</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+						<h3 class="panel-title">邀请码</h3>
+						</div>
+						<div class="panel-body form-horizontal">
+							<div class="alert alert-info" role="alert"><strong>提示：</strong>以下内容仅对部分用户开放！</div>
+							<div class="form-group">
+								<label for="invitationcode" class="col-sm-2 control-label">邀请码</label>
+								<div class="col-sm-5">
+									<input type="email" class="form-control" id="invitationcode" placeholder="邀请码">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="alert alert-danger" role="alert" id="hxwarning"><strong>Warning!</strong>
 						<span>
-							<!-- This site contains sexually explicit adult materials intended for individuals 18 years of age or older. To those whom may concern, block this website with parental controls. -->
+							This site contains sexually explicit adult materials intended for individuals 18 years of age or older. To those whom may concern, block this website with parental controls.
 							以下可能出现you know的内容.如果你还很纯洁,请速速远离!
 						</span>
 						<a href="#" class="alert-link">Agree</a>
 						<a href="#" class="alert-link">Disagree</a>
-					</div>
-					<table class="table table-striped  table-hover no-bottom-margin hx" id="youkonwthat">
-						<tr >
-							<td>
-								<button class="btn btn-warning" type="button">
-									Type <span class="badge">10</span>
-								</button>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-							<td>
-								<h5><a href="#">My Site 1</a></h5>
-							</td>
-						</tr>
+					</div> -->
+					<?php if($isLogin){?>
+					<table class="table table-striped  table-hover no-bottom-margin" id="youknowthat">
+						<?php 
+						$currentType=0;
+						foreach ($data[888] as $key => $row) {
+							if($row['type2']!=$currentType){
+								echo "<tr>";
+								$currentType=$row['type2'];
+						?>
+								<td width="10%">
+									<button class="btn btn-warning" type="button">
+										<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
+									</button>
+								</td>
+						<?php 
+							}
+						 ?>
+								<td>
+									<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
+								</td>
+						<?php
+							if($row['type2']!=$currentType){
+								echo "</tr>";
+							}
+						}
+						?>
 					</table>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
