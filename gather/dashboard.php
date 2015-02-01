@@ -141,7 +141,7 @@ return 0;
 				<td ><?php echo $row['id']; ?></td>
 				<td><?php echo $type2name[$row['type2']]; ?></td>
 				<td><?php echo $row['site']; ?></td>
-				<td><a href="<?php echo $row['addr']; ?>"><?php echo $row['addr']; ?></a></td>
+				<td><a href="<?php echo "http://".$row['addr']; ?>"><?php echo $row['addr']; ?></a></td>
 				<td><?php echo $row['add_time']; ?></td>
 				<td><?php if($row['is_recommend'])echo"是";else echo"否"; ?></td>
 				<!-- <td><?php echo $row['recommend_time']; ?></td> -->

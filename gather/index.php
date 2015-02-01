@@ -101,16 +101,7 @@
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
 					<?php foreach ($data[1] as $key => $row) {
 						if ($row['is_recommend']){
-					?>
-						<tr>
-							<td width="85%">
-								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
-							</td>
-							<td width="15%">
-								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
-							</td>
-						</tr>
-					<?php 
+							include("showlink.php");
 						}
 					}
 					 ?>
@@ -119,28 +110,7 @@
 						<?php 
 						$currentType=0;
 						foreach ($data[1] as $key => $row) {
-							if (!$row['is_recommend']){
-								if($row['type2']!=$currentType){
-									echo "<tr>";
-									$currentType=$row['type2'];
-						?>
-									<td width="10%">
-										<button class="btn btn-primary" type="button">
-											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
-										</button>
-									</td>
-							<?php 
-								}
-							 ?>
-									<td width="15%" align="center">
-										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
-									</td>
-							<?php
-								if($row['type2']!=$currentType){
-									echo "</tr>";
-									
-								}
-							}
+							include("showlink2.php");
 						}
 						?>
 					</table>
@@ -149,16 +119,7 @@
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
 					<?php foreach ($data[2] as $key => $row) {
 						if ($row['is_recommend']){
-					?>
-						<tr>
-							<td width="85%">
-								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
-							</td>
-							<td width="15%">
-								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
-							</td>
-						</tr>
-					<?php 
+							include("showlink.php");
 						}
 					}
 					 ?>
@@ -167,28 +128,7 @@
 						<?php 
 						$currentType=0;
 						foreach ($data[2] as $key => $row) {
-							if (!$row['is_recommend']){
-								if($row['type2']!=$currentType){
-									echo "<tr>";
-									$currentType=$row['type2'];
-						?>
-									<td width="10%">
-										<button class="btn btn-primary" type="button">
-											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
-										</button>
-									</td>
-							<?php 
-								}
-							 ?>
-									<td>
-										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
-									</td>
-							<?php
-								if($row['type2']!=$currentType){
-									echo "</tr>";
-									
-								}
-							}
+							include("showlink2.php");
 						}
 						?>
 					</table>
@@ -197,16 +137,7 @@
 					<table class="table  table-hover  table-stripedr table-condensed no-bottom-margin" >
 					<?php foreach ($data[3] as $key => $row) {
 						if ($row['is_recommend']){
-					?>
-						<tr>
-							<td width="85%">
-								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
-							</td>
-							<td width="15%">
-								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
-							</td>
-						</tr>
-					<?php 
+							include("showlink.php");
 						}
 					}
 					 ?>
@@ -216,25 +147,7 @@
 						$currentType=0;
 						foreach ($data[3] as $key => $row) {
 							if (!$row['is_recommend']){
-								if($row['type2']!=$currentType){
-									echo "<tr>";
-									$currentType=$row['type2'];
-						?>
-									<td width="10%">
-										<button class="btn btn-primary" type="button">
-											<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
-										</button>
-									</td>
-						<?php 
-								}
-						 ?>
-									<td>
-										<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
-									</td>
-						<?php
-								if($row['type2']!=$currentType){
-									echo "</tr>";
-								}
+								include("showlink2.php");
 							}
 						}
 						?>
@@ -269,25 +182,7 @@
 						<?php 
 						$currentType=0;
 						foreach ($data[888] as $key => $row) {
-							if($row['type2']!=$currentType){
-								echo "<tr>";
-								$currentType=$row['type2'];
-						?>
-								<td width="10%">
-									<button class="btn btn-warning" type="button">
-										<?php echo $typeName[$row['type2']]; ?> <span class="badge">+</span>
-									</button>
-								</td>
-						<?php 
-							}
-						 ?>
-								<td>
-									<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a></h4>
-								</td>
-						<?php
-							if($row['type2']!=$currentType){
-								echo "</tr>";
-							}
+							include("showlink2.php");
 						}
 						?>
 					</table>

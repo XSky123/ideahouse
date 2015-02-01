@@ -2,6 +2,9 @@
 	include_once("../conn.php"); 
 	$site=$_POST['site'];
 	$addr=$_POST['addr'];
+	if(substr($addr,0,7)){
+		$addr=substr($addr,7);
+	}//Add http:// if not
 	$type1=$_POST['type1'];
 	$type2=$_POST['type2'];
 	$add_time=date('Y-m-d H:i:s');

@@ -51,7 +51,7 @@
             <p class="lead">捕捉刹那间的灵感,分享生活的故事.晓天的灵感屋.</p>
             <p class="lead">
               <a href="http://blog.xsky123.com" class="btn btn-lg btn-info">进入博客 Blog</a>
-<!--               <a href="#" class="btn btn-lg btn-success">天空实验室 beta</a> -->
+              <a href="gather/index.php" class="btn btn-lg btn-success">集锦 Gather</a>
             </p>
           </div>          
           <div class="mastfoot">
