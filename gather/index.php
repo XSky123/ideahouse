@@ -152,10 +152,10 @@
 					?>
 						<tr>
 							<td width="85%">
-								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
+								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
+								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
 							</td>
 						</tr>
 					<?php 
@@ -200,10 +200,10 @@
 					?>
 						<tr>
 							<td width="85%">
-								<h4><?php echo $row['site']; ?> <small><?php echo $row['recommendation']; ?></small></h4>
+								<h4><a href=<?php echo $row['addr']; ?>><?php echo $row['site']; ?></a> <small><?php echo $row['recommendation']; ?></small></h4>
 							</td>
 							<td width="15%">
-								<h5><em><small><?php echo $row['addr']; ?></small></em></h5>
+								<h5><a href=<?php echo $row['addr']; ?>><em><small><?php echo $row['addr']; ?></small></em></a></h5>
 							</td>
 						</tr>
 					<?php 
