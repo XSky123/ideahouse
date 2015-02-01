@@ -140,6 +140,33 @@
 	</div>
 	</form>
 </div>
+<div class="modal fade" id="add_type2">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">添加子类</h4>
+	  </div>
+	  <div class="modal-body">
+		  <div class="col-sm-3">
+				<select class="form-control" name="choose_type1" id="choose_type1">
+					<option value=1>精选</option>
+					<option value=2>开发工具</option>
+					<option value=3>资源</option>
+					<option value=888>☆资源 - 福利</option>
+				</select>
+		</div>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="type2Name"  name="type2Name"placeholder="子类名">
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">完成</button>
+		<button type="button" class="btn btn-success" id="addType2">添加</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <?php }else{ ?>
 	<div class="container">
 			<div class="jumbotron">
