@@ -2,7 +2,7 @@
 	include_once("../conn.php"); 
 	$site=$_POST['site'];
 	$addr=$_POST['addr'];
-	if(substr($addr,0,7)){
+	if(substr($addr,0,7)=="http://"){
 		$addr=substr($addr,7);
 	}//Add http:// if not
 	$type1=$_POST['type1'];
