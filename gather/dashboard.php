@@ -39,7 +39,7 @@
 		}
 		$result = mysql_query($sql);
 		$result2=mysql_query($sql2);
-		$type2name=[];
+		$type2name=array();
 		while($row = mysql_fetch_array($result2))
 		{
 			$type2name[$row['id']]=$row['name'];
