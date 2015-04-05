@@ -19,7 +19,6 @@ function GETBySocket($URL, $port=80) {
     $host=substr($host_array[0],2,-1);
     //connect
     $fp = stream_socket_client("$host:$port", $errcode, $errstr, 1);// or die("get ". $host ." failed");
-    //
     $header = "GET ". $URL. " HTTP/1.1\r\n"; 
     $header .= "Accept: */*\r\n"; 
     $header .= "Accept-Language: zh-cn\r\n";
@@ -44,30 +43,49 @@ function GETBySocket($URL, $port=80) {
     }
 
 }
-$html=GETBySocket("http://www.btspread.com/search/NNSS-017");
-preg_match("/<tbody>(.*?)<\/tbody>/",$html,$target);
-preg_match_all("/<tr>(.*?)<\/tr>/",$target[1],$matches);
+function FetchBtspread($keyword){
+  /* Note:
+  The Result is an Array.
+  Include:
+    result["lnkName"]
+    result["lnkSize"]
+    result["lnkPage"] */
 
-foreach ($matches[0] as $i=>$item) {
-  preg_match("/class=\"btn\" title=\"(.*?)\"/", $item,$tmp["lnkName"]);
-  preg_match("/class=\"files-size\">(.*?)<\/td>/", $item,$tmp["lnkSize"]);
-  preg_match("/<td class=\"action\"><a href=\"(.*?)\"/", $item,$tmp["lnkPage"]);
-  $detailHTML=GETBySocket($tmp["lnkPage"][1]);
-  preg_match("/readonly>(.*?)<\/textarea>/",$detailHTML,$tmp["lnkDetail"]);
-  foreach ($tmp as $key => $value) {
-    $result[$i][$key]=$value[1];
+  //****Build URL****
+  $baseURL = "http://www.btspread.com/search/";
+  $baseURL .= $keyword;
+
+  //****Get HTML****
+  $html = GETBySocket($baseURL);
+
+  //****Get Each Item****
+  preg_match("/<tbody>(.*?)<\/tbody>/",$html,$target);
+  preg_match_all("/<tr>(.*?)<\/tr>/",$target[1],$matches);
+
+  //****Fetch Each Item****
+  foreach ($matches[0] as $i=>$item) {
+    preg_match("/class=\"btn\" title=\"(.*?)\"/", $item,$tmp["lnkName"]);
+    preg_match("/class=\"files-size\">(.*?)<\/td>/", $item,$tmp["lnkSize"]);
+    preg_match("/<td class=\"action\"><a href=\"(.*?)\"/", $item,$tmp["lnkPage"]);
+    // $detailHTML=GETBySocket($tmp["lnkPage"][1]);
+    // preg_match("/readonly>(.*?)<\/textarea>/",$detailHTML,$tmp["lnkDetail"]);
+    foreach ($tmp as $key => $value)
+      $result[$i][$key]=$value[1];
   }
 
-
-  
-
-}
-foreach ($result as $item) {
-  print_r($item);
-  echo "<br>";
+  //****Return the result****
+  return $result;
 }
 
+function test($result){
+  foreach ($result as $item) {
+    print_r($item);
+    echo "<br>";
+  }
+}
+
+test(FetchBtspread("NNSS"))
 // foreach ($html->find('tr') as $item){
 //   echo $item."<br>";
 // }
- ?>
+?>
